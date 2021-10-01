@@ -1,2 +1,2 @@
 # Project-UMEED
-Project UMEED is an initiative to gather important and relevant Urban Planning geospatial data from 
+Project UMEED is an initiative to gather important and relevant Urban Planning geospatial data from public access resources of various organizations such as NASA, sort it in hierarchical format and display it in a free-to-access public web application for the common public and relevant experts, in order to provide a clear picture of how to make cities resilient, sustainable and environmental friendly in the future, informing the SDG's for 2030

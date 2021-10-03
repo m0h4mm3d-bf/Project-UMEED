@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1250px;
+            height: 550px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Union_Council_1.js"></script>
+        <script src="data/Tehsil_Boundary_2.js"></script>
+        <script src="data/Provincial_Constituency_3.js"></script>
+        <script src="data/Provincial_Boundary_4.js"></script>
+        <script src="data/National_Constituency_with_Projected_2010_Population_5.js"></script>
+        <script src="data/National_Boundaryreal_6.js"></script>
+        <script src="data/National_Boundary_7.js"></script>
+        <script src="data/District_Boundary_8.js"></script>
+        <script src="data/MainPowerGrid_13.js"></script>
+        <script src="data/MainPowerStations_14.js"></script>
+        <script src="data/WaterPresence_15.js"></script>
+        <script src="data/FreshwaterSourcesandDrainage_16.js"></script>
+        <script src="data/HealthFacilities_17.js"></script>
+        <script src="data/OpenPublicSpaces_18.js"></script>
+        <script src="data/LiquefactionproneareasEarthquakeRisk_25.js"></script>
+        <script src="data/PakistanrivernetworkFloodRisk_26.js"></script>
+        <script src="data/TerrainContourLinesLandslidesRisk_27.js"></script>
+        <script src="data/CulturalHeritageSites_28.js"></script>
+        <script src="data/MunicipalitiesLandUse_32.js"></script>
+        <script src="data/TownsSuburbs_33.js"></script>
+        <script src="data/NaturalBeach_34.js"></script>
+        <script src="data/PlacesofInterest_35.js"></script>
+        <script src="data/PlacesofWorship_36.js"></script>
+        <script src="data/PublicTransportLandmarks_37.js"></script>
+        <script src="data/ParkingGasandTransportServices_38.js"></script>
+        <script src="data/RoadNetwork_39.js"></script>
+        <script src="data/RailwayLines_40.js"></script>
+        <script src="data/SlumsandInappropriateSettlements_41.js"></script>
+        <script src="data/ProperResidentialAreas_42.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:20, minZoom:1
+        }).fitBounds([[23.940685355502435,64.83902500258368],[26.535114043131586,70.6254218550359]]);
+        var hash = new L.Hash(map);
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            map.setMaxBounds(map.getBounds());
+        }
+
+        map.createPane('pane_GoogleHybrid_43');
+        map.getPane('pane_GoogleHybrid_43').style.zIndex = 356;
+        var layer_GoogleHybrid_43 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_43',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 20,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleHybrid_43;
+        map.addLayer(layer_GoogleHybrid_43);
+
+        map.createPane('pane_KARACHI2021LandsatInfrared_44');
+        map.getPane('pane_KARACHI2021LandsatInfrared_44').style.zIndex = 357;
+        var img_KARACHI2021LandsatInfrared_44 = 'data/KARACHI2021LandsatInfrared_44.png';
+        var img_bounds_KARACHI2021LandsatInfrared_44 = [[23.47405476889716,66.4202216993402],[25.616217066414617,68.71612484860293]];
+        var layer_KARACHI2021LandsatInfrared_44 = new L.imageOverlay(img_KARACHI2021LandsatInfrared_44,
+                                              img_bounds_KARACHI2021LandsatInfrared_44,
+                                              {pane: 'pane_KARACHI2021LandsatInfrared_44'});
+        bounds_group.addLayer(layer_KARACHI2021LandsatInfrared_44);
+
+        function pop_Union_Council_1(feature, layer) {
+        }
+
+        function style_Union_Council_1_0() {
+            return {
+                pane: 'pane_Union_Council_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Union_Council_1');
+        map.getPane('pane_Union_Council_1').style.zIndex = 359;
+        map.getPane('pane_Union_Council_1').style['mix-blend-mode'] = 'normal';
+        var layer_Union_Council_1 = new L.geoJson(json_Union_Council_1, {
+            attribution: 'NASA SEDAC',
+            interactive: true,
+            dataVar: 'json_Union_Council_1',
+            layerName: 'layer_Union_Council_1',
+            pane: 'pane_Union_Council_1',
+            onEachFeature: pop_Union_Council_1,
+            style: style_Union_Council_1_0,
+        });
+        bounds_group.addLayer(layer_Union_Council_1);
+        function pop_Tehsil_Boundary_2(feature, layer) {
+        }
+
+        function style_Tehsil_Boundary_2_0() {
+            return {
+                pane: 'pane_Tehsil_Boundary_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Tehsil_Boundary_2');
+        map.getPane('pane_Tehsil_Boundary_2').style.zIndex = 360;
+        map.getPane('pane_Tehsil_Boundary_2').style['mix-blend-mode'] = 'normal';
+        var layer_Tehsil_Boundary_2 = new L.geoJson(json_Tehsil_Boundary_2, {
+            attribution: 'NASA Earthdata',
+            interactive: true,
+            dataVar: 'json_Tehsil_Boundary_2',
+            layerName: 'layer_Tehsil_Boundary_2',
+            pane: 'pane_Tehsil_Boundary_2',
+            onEachFeature: pop_Tehsil_Boundary_2,
+            style: style_Tehsil_Boundary_2_0,
+        });
+        bounds_group.addLayer(layer_Tehsil_Boundary_2);
+        function pop_Provincial_Constituency_3(feature, layer) {
+        }
+
+        function style_Provincial_Constituency_3_0() {
+            return {
+                pane: 'pane_Provincial_Constituency_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(164,113,88,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Provincial_Constituency_3');
+        map.getPane('pane_Provincial_Constituency_3').style.zIndex = 361;
+        map.getPane('pane_Provincial_Constituency_3').style['mix-blend-mode'] = 'normal';
+        var layer_Provincial_Constituency_3 = new L.geoJson(json_Provincial_Constituency_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Provincial_Constituency_3',
+            layerName: 'layer_Provincial_Constituency_3',
+            pane: 'pane_Provincial_Constituency_3',
+            onEachFeature: pop_Provincial_Constituency_3,
+            style: style_Provincial_Constituency_3_0,
+        });
+        bounds_group.addLayer(layer_Provincial_Constituency_3);
+        function pop_Provincial_Boundary_4(feature, layer) {
+        }
+
+        function style_Provincial_Boundary_4_0() {
+            return {
+                pane: 'pane_Provincial_Boundary_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Provincial_Boundary_4');
+        map.getPane('pane_Provincial_Boundary_4').style.zIndex = 362;
+        map.getPane('pane_Provincial_Boundary_4').style['mix-blend-mode'] = 'normal';
+        var layer_Provincial_Boundary_4 = new L.geoJson(json_Provincial_Boundary_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Provincial_Boundary_4',
+            layerName: 'layer_Provincial_Boundary_4',
+            pane: 'pane_Provincial_Boundary_4',
+            onEachFeature: pop_Provincial_Boundary_4,
+            style: style_Provincial_Boundary_4_0,
+        });
+        bounds_group.addLayer(layer_Provincial_Boundary_4);
+        function pop_National_Constituency_with_Projected_2010_Population_5(feature, layer) {
+        }
+
+        function style_National_Constituency_with_Projected_2010_Population_5_0() {
+            return {
+                pane: 'pane_National_Constituency_with_Projected_2010_Population_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_National_Constituency_with_Projected_2010_Population_5');
+        map.getPane('pane_National_Constituency_with_Projected_2010_Population_5').style.zIndex = 363;
+        map.getPane('pane_National_Constituency_with_Projected_2010_Population_5').style['mix-blend-mode'] = 'normal';
+        var layer_National_Constituency_with_Projected_2010_Population_5 = new L.geoJson(json_National_Constituency_with_Projected_2010_Population_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_National_Constituency_with_Projected_2010_Population_5',
+            layerName: 'layer_National_Constituency_with_Projected_2010_Population_5',
+            pane: 'pane_National_Constituency_with_Projected_2010_Population_5',
+            onEachFeature: pop_National_Constituency_with_Projected_2010_Population_5,
+            style: style_National_Constituency_with_Projected_2010_Population_5_0,
+        });
+        bounds_group.addLayer(layer_National_Constituency_with_Projected_2010_Population_5);
+        function pop_National_Boundaryreal_6(feature, layer) {
+        }
+
+        function style_National_Boundaryreal_6_0() {
+            return {
+                pane: 'pane_National_Boundaryreal_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_National_Boundaryreal_6');
+        map.getPane('pane_National_Boundaryreal_6').style.zIndex = 364;
+        map.getPane('pane_National_Boundaryreal_6').style['mix-blend-mode'] = 'normal';
+        var layer_National_Boundaryreal_6 = new L.geoJson(json_National_Boundaryreal_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_National_Boundaryreal_6',
+            layerName: 'layer_National_Boundaryreal_6',
+            pane: 'pane_National_Boundaryreal_6',
+            onEachFeature: pop_National_Boundaryreal_6,
+            style: style_National_Boundaryreal_6_0,
+        });
+        bounds_group.addLayer(layer_National_Boundaryreal_6);
+        function pop_National_Boundary_7(feature, layer) {
+        }
+
+        function style_National_Boundary_7_0() {
+            return {
+                pane: 'pane_National_Boundary_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_National_Boundary_7');
+        map.getPane('pane_National_Boundary_7').style.zIndex = 365;
+        map.getPane('pane_National_Boundary_7').style['mix-blend-mode'] = 'normal';
+        var layer_National_Boundary_7 = new L.geoJson(json_National_Boundary_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_National_Boundary_7',
+            layerName: 'layer_National_Boundary_7',
+            pane: 'pane_National_Boundary_7',
+            onEachFeature: pop_National_Boundary_7,
+            style: style_National_Boundary_7_0,
+        });
+        bounds_group.addLayer(layer_National_Boundary_7);
+        function pop_District_Boundary_8(feature, layer) {
+        }
+
+        function style_District_Boundary_8_0() {
+            return {
+                pane: 'pane_District_Boundary_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_District_Boundary_8');
+        map.getPane('pane_District_Boundary_8').style.zIndex = 366;
+        map.getPane('pane_District_Boundary_8').style['mix-blend-mode'] = 'normal';
+        var layer_District_Boundary_8 = new L.geoJson(json_District_Boundary_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_District_Boundary_8',
+            layerName: 'layer_District_Boundary_8',
+            pane: 'pane_District_Boundary_8',
+            onEachFeature: pop_District_Boundary_8,
+            style: style_District_Boundary_8_0,
+        });
+        bounds_group.addLayer(layer_District_Boundary_8);
+        map.createPane('pane_SolarIrradianceFluxWest_9');
+        map.getPane('pane_SolarIrradianceFluxWest_9').style.zIndex = 367;
+        var img_SolarIrradianceFluxWest_9 = 'data/SolarIrradianceFluxWest_9.png';
+        var img_bounds_SolarIrradianceFluxWest_9 = [[19.58473169644687,49.944107350057564],[28.68686928131382,59.932928820072554]];
+        var layer_SolarIrradianceFluxWest_9 = new L.imageOverlay(img_SolarIrradianceFluxWest_9,
+                                              img_bounds_SolarIrradianceFluxWest_9,
+                                              {pane: 'pane_SolarIrradianceFluxWest_9'});
+        bounds_group.addLayer(layer_SolarIrradianceFluxWest_9);
+        map.createPane('pane_SolarIrradianceFluxEast_10');
+        map.getPane('pane_SolarIrradianceFluxEast_10').style.zIndex = 368;
+        var img_SolarIrradianceFluxEast_10 = 'data/SolarIrradianceFluxEast_10.png';
+        var img_bounds_SolarIrradianceFluxEast_10 = [[19.58473169644687,59.93292882007267],[28.68686928131382,69.92175029008766]];
+        var layer_SolarIrradianceFluxEast_10 = new L.imageOverlay(img_SolarIrradianceFluxEast_10,
+                                              img_bounds_SolarIrradianceFluxEast_10,
+                                              {pane: 'pane_SolarIrradianceFluxEast_10'});
+        bounds_group.addLayer(layer_SolarIrradianceFluxEast_10);
+        map.createPane('pane_SolarIrradianceFluxWest_11');
+        map.getPane('pane_SolarIrradianceFluxWest_11').style.zIndex = 369;
+        var img_SolarIrradianceFluxWest_11 = 'data/SolarIrradianceFluxWest_11.png';
+        var img_bounds_SolarIrradianceFluxWest_11 = [[19.58473169644687,49.944107350057564],[28.68686928131382,59.932928820072554]];
+        var layer_SolarIrradianceFluxWest_11 = new L.imageOverlay(img_SolarIrradianceFluxWest_11,
+                                              img_bounds_SolarIrradianceFluxWest_11,
+                                              {pane: 'pane_SolarIrradianceFluxWest_11'});
+        bounds_group.addLayer(layer_SolarIrradianceFluxWest_11);
+        map.createPane('pane_SolarIrradianceFluxEast_12');
+        map.getPane('pane_SolarIrradianceFluxEast_12').style.zIndex = 370;
+        var img_SolarIrradianceFluxEast_12 = 'data/SolarIrradianceFluxEast_12.png';
+        var img_bounds_SolarIrradianceFluxEast_12 = [[19.58473169644687,59.93292882007267],[28.68686928131382,69.92175029008766]];
+        var layer_SolarIrradianceFluxEast_12 = new L.imageOverlay(img_SolarIrradianceFluxEast_12,
+                                              img_bounds_SolarIrradianceFluxEast_12,
+                                              {pane: 'pane_SolarIrradianceFluxEast_12'});
+        bounds_group.addLayer(layer_SolarIrradianceFluxEast_12);
+        function pop_MainPowerGrid_13(feature, layer) {
+        }
+
+        function style_MainPowerGrid_13_0() {
+            return {
+                pane: 'pane_MainPowerGrid_13',
+                opacity: 1,
+                color: 'rgba(164,113,88,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MainPowerGrid_13');
+        map.getPane('pane_MainPowerGrid_13').style.zIndex = 371;
+        map.getPane('pane_MainPowerGrid_13').style['mix-blend-mode'] = 'normal';
+        var layer_MainPowerGrid_13 = new L.geoJson(json_MainPowerGrid_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MainPowerGrid_13',
+            layerName: 'layer_MainPowerGrid_13',
+            pane: 'pane_MainPowerGrid_13',
+            onEachFeature: pop_MainPowerGrid_13,
+            style: style_MainPowerGrid_13_0,
+        });
+        bounds_group.addLayer(layer_MainPowerGrid_13);
+        function pop_MainPowerStations_14(feature, layer) {
+        }
+
+        function style_MainPowerStations_14_0() {
+            return {
+                pane: 'pane_MainPowerStations_14',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MainPowerStations_14');
+        map.getPane('pane_MainPowerStations_14').style.zIndex = 372;
+        map.getPane('pane_MainPowerStations_14').style['mix-blend-mode'] = 'normal';
+        var layer_MainPowerStations_14 = new L.geoJson(json_MainPowerStations_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MainPowerStations_14',
+            layerName: 'layer_MainPowerStations_14',
+            pane: 'pane_MainPowerStations_14',
+            onEachFeature: pop_MainPowerStations_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_MainPowerStations_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MainPowerStations_14);
+        function pop_WaterPresence_15(feature, layer) {
+        }
+
+        function style_WaterPresence_15_0() {
+            return {
+                pane: 'pane_WaterPresence_15',
+                opacity: 1,
+                color: 'rgba(38,89,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(55,126,184,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_WaterPresence_15');
+        map.getPane('pane_WaterPresence_15').style.zIndex = 373;
+        map.getPane('pane_WaterPresence_15').style['mix-blend-mode'] = 'normal';
+        var layer_WaterPresence_15 = new L.geoJson(json_WaterPresence_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WaterPresence_15',
+            layerName: 'layer_WaterPresence_15',
+            pane: 'pane_WaterPresence_15',
+            onEachFeature: pop_WaterPresence_15,
+            style: style_WaterPresence_15_0,
+        });
+        bounds_group.addLayer(layer_WaterPresence_15);
+        function pop_FreshwaterSourcesandDrainage_16(feature, layer) {
+        }
+
+        function style_FreshwaterSourcesandDrainage_16_0() {
+            return {
+                pane: 'pane_FreshwaterSourcesandDrainage_16',
+                opacity: 1,
+                color: 'rgba(72,123,182,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_FreshwaterSourcesandDrainage_16');
+        map.getPane('pane_FreshwaterSourcesandDrainage_16').style.zIndex = 374;
+        map.getPane('pane_FreshwaterSourcesandDrainage_16').style['mix-blend-mode'] = 'normal';
+        var layer_FreshwaterSourcesandDrainage_16 = new L.geoJson(json_FreshwaterSourcesandDrainage_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FreshwaterSourcesandDrainage_16',
+            layerName: 'layer_FreshwaterSourcesandDrainage_16',
+            pane: 'pane_FreshwaterSourcesandDrainage_16',
+            onEachFeature: pop_FreshwaterSourcesandDrainage_16,
+            style: style_FreshwaterSourcesandDrainage_16_0,
+        });
+        bounds_group.addLayer(layer_FreshwaterSourcesandDrainage_16);
+        function pop_HealthFacilities_17(feature, layer) {
+        }
+
+        function style_HealthFacilities_17_0() {
+            return {
+                pane: 'pane_HealthFacilities_17',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HealthFacilities_17');
+        map.getPane('pane_HealthFacilities_17').style.zIndex = 375;
+        map.getPane('pane_HealthFacilities_17').style['mix-blend-mode'] = 'normal';
+        var layer_HealthFacilities_17 = new L.geoJson(json_HealthFacilities_17, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HealthFacilities_17',
+            layerName: 'layer_HealthFacilities_17',
+            pane: 'pane_HealthFacilities_17',
+            onEachFeature: pop_HealthFacilities_17,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_HealthFacilities_17_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_HealthFacilities_17);
+        function pop_OpenPublicSpaces_18(feature, layer) {
+        }
+
+        function style_OpenPublicSpaces_18_0() {
+            return {
+                pane: 'pane_OpenPublicSpaces_18',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,125,183,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_OpenPublicSpaces_18');
+        map.getPane('pane_OpenPublicSpaces_18').style.zIndex = 376;
+        map.getPane('pane_OpenPublicSpaces_18').style['mix-blend-mode'] = 'normal';
+        var layer_OpenPublicSpaces_18 = new L.geoJson(json_OpenPublicSpaces_18, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_OpenPublicSpaces_18',
+            layerName: 'layer_OpenPublicSpaces_18',
+            pane: 'pane_OpenPublicSpaces_18',
+            onEachFeature: pop_OpenPublicSpaces_18,
+            style: style_OpenPublicSpaces_18_0,
+        });
+        bounds_group.addLayer(layer_OpenPublicSpaces_18);
+        map.createPane('pane_oceanpollution_c_19');
+        map.getPane('pane_oceanpollution_c_19').style.zIndex = 377;
+        var img_oceanpollution_c_19 = 'data/oceanpollution_c_19.png';
+        var img_bounds_oceanpollution_c_19 = [[17.666235999999966,60.33237200000002],[28.082860999999966,73.49898600000002]];
+        var layer_oceanpollution_c_19 = new L.imageOverlay(img_oceanpollution_c_19,
+                                              img_bounds_oceanpollution_c_19,
+                                              {pane: 'pane_oceanpollution_c_19'});
+        bounds_group.addLayer(layer_oceanpollution_c_19);
+        map.createPane('pane_airpollution_c_20');
+        map.getPane('pane_airpollution_c_20').style.zIndex = 378;
+        var img_airpollution_c_20 = 'data/airpollution_c_20.png';
+        var img_bounds_airpollution_c_20 = [[21.120922230000097,64.00436187],[28.545928170000096,72.15020172]];
+        var layer_airpollution_c_20 = new L.imageOverlay(img_airpollution_c_20,
+                                              img_bounds_airpollution_c_20,
+                                              {pane: 'pane_airpollution_c_20'});
+        bounds_group.addLayer(layer_airpollution_c_20);
+        map.createPane('pane_VegetationDensityEast_21');
+        map.getPane('pane_VegetationDensityEast_21').style.zIndex = 379;
+        var img_VegetationDensityEast_21 = 'data/VegetationDensityEast_21.png';
+        var img_bounds_VegetationDensityEast_21 = [[19.99999999820094,63.85066634209103],[29.999999997305917,80.82903767709794]];
+        var layer_VegetationDensityEast_21 = new L.imageOverlay(img_VegetationDensityEast_21,
+                                              img_bounds_VegetationDensityEast_21,
+                                              {pane: 'pane_VegetationDensityEast_21'});
+        bounds_group.addLayer(layer_VegetationDensityEast_21);
+        map.createPane('pane_VegetationDensityWest_22');
+        map.getPane('pane_VegetationDensityWest_22').style.zIndex = 380;
+        var img_VegetationDensityWest_22 = 'data/VegetationDensityWest_22.png';
+        var img_bounds_VegetationDensityWest_22 = [[19.99999999820094,53.20888861840601],[29.999999997305917,69.2820322946524]];
+        var layer_VegetationDensityWest_22 = new L.imageOverlay(img_VegetationDensityWest_22,
+                                              img_bounds_VegetationDensityWest_22,
+                                              {pane: 'pane_VegetationDensityWest_22'});
+        bounds_group.addLayer(layer_VegetationDensityWest_22);
+        map.createPane('pane_VegetationDensityEast_23');
+        map.getPane('pane_VegetationDensityEast_23').style.zIndex = 381;
+        var img_VegetationDensityEast_23 = 'data/VegetationDensityEast_23.png';
+        var img_bounds_VegetationDensityEast_23 = [[19.99999999820094,63.85066634209103],[29.999999997305917,80.82903767709794]];
+        var layer_VegetationDensityEast_23 = new L.imageOverlay(img_VegetationDensityEast_23,
+                                              img_bounds_VegetationDensityEast_23,
+                                              {pane: 'pane_VegetationDensityEast_23'});
+        bounds_group.addLayer(layer_VegetationDensityEast_23);
+        map.createPane('pane_VegetationDensityWest_24');
+        map.getPane('pane_VegetationDensityWest_24').style.zIndex = 382;
+        var img_VegetationDensityWest_24 = 'data/VegetationDensityWest_24.png';
+        var img_bounds_VegetationDensityWest_24 = [[19.99999999820094,53.20888861840601],[29.999999997305917,69.2820322946524]];
+        var layer_VegetationDensityWest_24 = new L.imageOverlay(img_VegetationDensityWest_24,
+                                              img_bounds_VegetationDensityWest_24,
+                                              {pane: 'pane_VegetationDensityWest_24'});
+        bounds_group.addLayer(layer_VegetationDensityWest_24);
+        function pop_LiquefactionproneareasEarthquakeRisk_25(feature, layer) {
+        }
+
+        function style_LiquefactionproneareasEarthquakeRisk_25_0() {
+            return {
+                pane: 'pane_LiquefactionproneareasEarthquakeRisk_25',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LiquefactionproneareasEarthquakeRisk_25');
+        map.getPane('pane_LiquefactionproneareasEarthquakeRisk_25').style.zIndex = 383;
+        map.getPane('pane_LiquefactionproneareasEarthquakeRisk_25').style['mix-blend-mode'] = 'normal';
+        var layer_LiquefactionproneareasEarthquakeRisk_25 = new L.geoJson(json_LiquefactionproneareasEarthquakeRisk_25, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LiquefactionproneareasEarthquakeRisk_25',
+            layerName: 'layer_LiquefactionproneareasEarthquakeRisk_25',
+            pane: 'pane_LiquefactionproneareasEarthquakeRisk_25',
+            onEachFeature: pop_LiquefactionproneareasEarthquakeRisk_25,
+            style: style_LiquefactionproneareasEarthquakeRisk_25_0,
+        });
+        bounds_group.addLayer(layer_LiquefactionproneareasEarthquakeRisk_25);
+        function pop_PakistanrivernetworkFloodRisk_26(feature, layer) {
+        }
+
+        function style_PakistanrivernetworkFloodRisk_26_0() {
+            return {
+                pane: 'pane_PakistanrivernetworkFloodRisk_26',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PakistanrivernetworkFloodRisk_26');
+        map.getPane('pane_PakistanrivernetworkFloodRisk_26').style.zIndex = 384;
+        map.getPane('pane_PakistanrivernetworkFloodRisk_26').style['mix-blend-mode'] = 'normal';
+        var layer_PakistanrivernetworkFloodRisk_26 = new L.geoJson(json_PakistanrivernetworkFloodRisk_26, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PakistanrivernetworkFloodRisk_26',
+            layerName: 'layer_PakistanrivernetworkFloodRisk_26',
+            pane: 'pane_PakistanrivernetworkFloodRisk_26',
+            onEachFeature: pop_PakistanrivernetworkFloodRisk_26,
+            style: style_PakistanrivernetworkFloodRisk_26_0,
+        });
+        bounds_group.addLayer(layer_PakistanrivernetworkFloodRisk_26);
+        function pop_TerrainContourLinesLandslidesRisk_27(feature, layer) {
+        }
+
+        function style_TerrainContourLinesLandslidesRisk_27_0() {
+            return {
+                pane: 'pane_TerrainContourLinesLandslidesRisk_27',
+                opacity: 1,
+                color: 'rgba(231,113,72,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_TerrainContourLinesLandslidesRisk_27');
+        map.getPane('pane_TerrainContourLinesLandslidesRisk_27').style.zIndex = 385;
+        map.getPane('pane_TerrainContourLinesLandslidesRisk_27').style['mix-blend-mode'] = 'normal';
+        var layer_TerrainContourLinesLandslidesRisk_27 = new L.geoJson(json_TerrainContourLinesLandslidesRisk_27, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_TerrainContourLinesLandslidesRisk_27',
+            layerName: 'layer_TerrainContourLinesLandslidesRisk_27',
+            pane: 'pane_TerrainContourLinesLandslidesRisk_27',
+            onEachFeature: pop_TerrainContourLinesLandslidesRisk_27,
+            style: style_TerrainContourLinesLandslidesRisk_27_0,
+        });
+        bounds_group.addLayer(layer_TerrainContourLinesLandslidesRisk_27);
+        function pop_CulturalHeritageSites_28(feature, layer) {
+        }
+
+        function style_CulturalHeritageSites_28_0() {
+            return {
+                pane: 'pane_CulturalHeritageSites_28',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CulturalHeritageSites_28');
+        map.getPane('pane_CulturalHeritageSites_28').style.zIndex = 386;
+        map.getPane('pane_CulturalHeritageSites_28').style['mix-blend-mode'] = 'normal';
+        var layer_CulturalHeritageSites_28 = new L.geoJson(json_CulturalHeritageSites_28, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CulturalHeritageSites_28',
+            layerName: 'layer_CulturalHeritageSites_28',
+            pane: 'pane_CulturalHeritageSites_28',
+            onEachFeature: pop_CulturalHeritageSites_28,
+            style: style_CulturalHeritageSites_28_0,
+        });
+        bounds_group.addLayer(layer_CulturalHeritageSites_28);
+        map.createPane('pane_Urbanizationby2035Predicted_29');
+        map.getPane('pane_Urbanizationby2035Predicted_29').style.zIndex = 387;
+        var img_Urbanizationby2035Predicted_29 = 'data/Urbanizationby2035Predicted_29.png';
+        var img_bounds_Urbanizationby2035Predicted_29 = [[23.725198412698468,66.12896825396824],[26.486111111111157,68.91865079365077]];
+        var layer_Urbanizationby2035Predicted_29 = new L.imageOverlay(img_Urbanizationby2035Predicted_29,
+                                              img_bounds_Urbanizationby2035Predicted_29,
+                                              {pane: 'pane_Urbanizationby2035Predicted_29'});
+        bounds_group.addLayer(layer_Urbanizationby2035Predicted_29);
+        map.createPane('pane_Urbanizationby2019_30');
+        map.getPane('pane_Urbanizationby2019_30').style.zIndex = 388;
+        var img_Urbanizationby2019_30 = 'data/Urbanizationby2019_30.png';
+        var img_bounds_Urbanizationby2019_30 = [[20.000000000000068,60.0],[40.0,79.99999999999993]];
+        var layer_Urbanizationby2019_30 = new L.imageOverlay(img_Urbanizationby2019_30,
+                                              img_bounds_Urbanizationby2019_30,
+                                              {pane: 'pane_Urbanizationby2019_30'});
+        bounds_group.addLayer(layer_Urbanizationby2019_30);
+        map.createPane('pane_Urbanizationby2015_31');
+        map.getPane('pane_Urbanizationby2015_31').style.zIndex = 389;
+        var img_Urbanizationby2015_31 = 'data/Urbanizationby2015_31.png';
+        var img_bounds_Urbanizationby2015_31 = [[23.461309523809582,66.07638888888887],[26.544642857142904,69.54662698412696]];
+        var layer_Urbanizationby2015_31 = new L.imageOverlay(img_Urbanizationby2015_31,
+                                              img_bounds_Urbanizationby2015_31,
+                                              {pane: 'pane_Urbanizationby2015_31'});
+        bounds_group.addLayer(layer_Urbanizationby2015_31);
+        function pop_MunicipalitiesLandUse_32(feature, layer) {
+        }
+
+        function style_MunicipalitiesLandUse_32_0() {
+            return {
+                pane: 'pane_MunicipalitiesLandUse_32',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MunicipalitiesLandUse_32');
+        map.getPane('pane_MunicipalitiesLandUse_32').style.zIndex = 390;
+        map.getPane('pane_MunicipalitiesLandUse_32').style['mix-blend-mode'] = 'normal';
+        var layer_MunicipalitiesLandUse_32 = new L.geoJson(json_MunicipalitiesLandUse_32, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MunicipalitiesLandUse_32',
+            layerName: 'layer_MunicipalitiesLandUse_32',
+            pane: 'pane_MunicipalitiesLandUse_32',
+            onEachFeature: pop_MunicipalitiesLandUse_32,
+            style: style_MunicipalitiesLandUse_32_0,
+        });
+        bounds_group.addLayer(layer_MunicipalitiesLandUse_32);
+        function pop_TownsSuburbs_33(feature, layer) {
+        }
+
+        function style_TownsSuburbs_33_0() {
+            return {
+                pane: 'pane_TownsSuburbs_33',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,60,57,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_TownsSuburbs_33');
+        map.getPane('pane_TownsSuburbs_33').style.zIndex = 391;
+        map.getPane('pane_TownsSuburbs_33').style['mix-blend-mode'] = 'normal';
+        var layer_TownsSuburbs_33 = new L.geoJson(json_TownsSuburbs_33, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_TownsSuburbs_33',
+            layerName: 'layer_TownsSuburbs_33',
+            pane: 'pane_TownsSuburbs_33',
+            onEachFeature: pop_TownsSuburbs_33,
+            style: style_TownsSuburbs_33_0,
+        });
+        bounds_group.addLayer(layer_TownsSuburbs_33);
+        function pop_NaturalBeach_34(feature, layer) {
+        }
+
+        function style_NaturalBeach_34_0() {
+            return {
+                pane: 'pane_NaturalBeach_34',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_NaturalBeach_34');
+        map.getPane('pane_NaturalBeach_34').style.zIndex = 392;
+        map.getPane('pane_NaturalBeach_34').style['mix-blend-mode'] = 'normal';
+        var layer_NaturalBeach_34 = new L.geoJson(json_NaturalBeach_34, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NaturalBeach_34',
+            layerName: 'layer_NaturalBeach_34',
+            pane: 'pane_NaturalBeach_34',
+            onEachFeature: pop_NaturalBeach_34,
+            style: style_NaturalBeach_34_0,
+        });
+        bounds_group.addLayer(layer_NaturalBeach_34);
+        function pop_PlacesofInterest_35(feature, layer) {
+        }
+
+        function style_PlacesofInterest_35_0() {
+            return {
+                pane: 'pane_PlacesofInterest_35',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,125,183,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PlacesofInterest_35');
+        map.getPane('pane_PlacesofInterest_35').style.zIndex = 393;
+        map.getPane('pane_PlacesofInterest_35').style['mix-blend-mode'] = 'normal';
+        var layer_PlacesofInterest_35 = new L.geoJson(json_PlacesofInterest_35, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlacesofInterest_35',
+            layerName: 'layer_PlacesofInterest_35',
+            pane: 'pane_PlacesofInterest_35',
+            onEachFeature: pop_PlacesofInterest_35,
+            style: style_PlacesofInterest_35_0,
+        });
+        bounds_group.addLayer(layer_PlacesofInterest_35);
+        function pop_PlacesofWorship_36(feature, layer) {
+        }
+
+        function style_PlacesofWorship_36_0() {
+            return {
+                pane: 'pane_PlacesofWorship_36',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,89,137,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PlacesofWorship_36');
+        map.getPane('pane_PlacesofWorship_36').style.zIndex = 394;
+        map.getPane('pane_PlacesofWorship_36').style['mix-blend-mode'] = 'normal';
+        var layer_PlacesofWorship_36 = new L.geoJson(json_PlacesofWorship_36, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlacesofWorship_36',
+            layerName: 'layer_PlacesofWorship_36',
+            pane: 'pane_PlacesofWorship_36',
+            onEachFeature: pop_PlacesofWorship_36,
+            style: style_PlacesofWorship_36_0,
+        });
+        bounds_group.addLayer(layer_PlacesofWorship_36);
+        function pop_PublicTransportLandmarks_37(feature, layer) {
+        }
+
+        function style_PublicTransportLandmarks_37_0() {
+            return {
+                pane: 'pane_PublicTransportLandmarks_37',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PublicTransportLandmarks_37');
+        map.getPane('pane_PublicTransportLandmarks_37').style.zIndex = 395;
+        map.getPane('pane_PublicTransportLandmarks_37').style['mix-blend-mode'] = 'normal';
+        var layer_PublicTransportLandmarks_37 = new L.geoJson(json_PublicTransportLandmarks_37, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PublicTransportLandmarks_37',
+            layerName: 'layer_PublicTransportLandmarks_37',
+            pane: 'pane_PublicTransportLandmarks_37',
+            onEachFeature: pop_PublicTransportLandmarks_37,
+            style: style_PublicTransportLandmarks_37_0,
+        });
+        bounds_group.addLayer(layer_PublicTransportLandmarks_37);
+        function pop_ParkingGasandTransportServices_38(feature, layer) {
+        }
+
+        function style_ParkingGasandTransportServices_38_0() {
+            return {
+                pane: 'pane_ParkingGasandTransportServices_38',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ParkingGasandTransportServices_38');
+        map.getPane('pane_ParkingGasandTransportServices_38').style.zIndex = 396;
+        map.getPane('pane_ParkingGasandTransportServices_38').style['mix-blend-mode'] = 'normal';
+        var layer_ParkingGasandTransportServices_38 = new L.geoJson(json_ParkingGasandTransportServices_38, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ParkingGasandTransportServices_38',
+            layerName: 'layer_ParkingGasandTransportServices_38',
+            pane: 'pane_ParkingGasandTransportServices_38',
+            onEachFeature: pop_ParkingGasandTransportServices_38,
+            style: style_ParkingGasandTransportServices_38_0,
+        });
+        bounds_group.addLayer(layer_ParkingGasandTransportServices_38);
+        function pop_RoadNetwork_39(feature, layer) {
+        }
+
+        function style_RoadNetwork_39_0() {
+            return {
+                pane: 'pane_RoadNetwork_39',
+                opacity: 1,
+                color: 'rgba(255,158,23,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RoadNetwork_39');
+        map.getPane('pane_RoadNetwork_39').style.zIndex = 397;
+        map.getPane('pane_RoadNetwork_39').style['mix-blend-mode'] = 'normal';
+        var layer_RoadNetwork_39 = new L.geoJson(json_RoadNetwork_39, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RoadNetwork_39',
+            layerName: 'layer_RoadNetwork_39',
+            pane: 'pane_RoadNetwork_39',
+            onEachFeature: pop_RoadNetwork_39,
+            style: style_RoadNetwork_39_0,
+        });
+        bounds_group.addLayer(layer_RoadNetwork_39);
+        function pop_RailwayLines_40(feature, layer) {
+        }
+
+        function style_RailwayLines_40_0() {
+            return {
+                pane: 'pane_RailwayLines_40',
+                opacity: 1,
+                color: 'rgba(183,72,75,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RailwayLines_40');
+        map.getPane('pane_RailwayLines_40').style.zIndex = 398;
+        map.getPane('pane_RailwayLines_40').style['mix-blend-mode'] = 'normal';
+        var layer_RailwayLines_40 = new L.geoJson(json_RailwayLines_40, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RailwayLines_40',
+            layerName: 'layer_RailwayLines_40',
+            pane: 'pane_RailwayLines_40',
+            onEachFeature: pop_RailwayLines_40,
+            style: style_RailwayLines_40_0,
+        });
+        bounds_group.addLayer(layer_RailwayLines_40);
+        function pop_SlumsandInappropriateSettlements_41(feature, layer) {
+        }
+
+        function style_SlumsandInappropriateSettlements_41_0() {
+            return {
+                pane: 'pane_SlumsandInappropriateSettlements_41',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SlumsandInappropriateSettlements_41');
+        map.getPane('pane_SlumsandInappropriateSettlements_41').style.zIndex = 399;
+        map.getPane('pane_SlumsandInappropriateSettlements_41').style['mix-blend-mode'] = 'normal';
+        var layer_SlumsandInappropriateSettlements_41 = new L.geoJson(json_SlumsandInappropriateSettlements_41, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SlumsandInappropriateSettlements_41',
+            layerName: 'layer_SlumsandInappropriateSettlements_41',
+            pane: 'pane_SlumsandInappropriateSettlements_41',
+            onEachFeature: pop_SlumsandInappropriateSettlements_41,
+            style: style_SlumsandInappropriateSettlements_41_0,
+        });
+        bounds_group.addLayer(layer_SlumsandInappropriateSettlements_41);
+        function pop_ProperResidentialAreas_42(feature, layer) {
+        }
+
+        function style_ProperResidentialAreas_42_0() {
+            return {
+                pane: 'pane_ProperResidentialAreas_42',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,195,37,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ProperResidentialAreas_42');
+        map.getPane('pane_ProperResidentialAreas_42').style.zIndex = 400;
+        map.getPane('pane_ProperResidentialAreas_42').style['mix-blend-mode'] = 'normal';
+        var layer_ProperResidentialAreas_42 = new L.geoJson(json_ProperResidentialAreas_42, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ProperResidentialAreas_42',
+            layerName: 'layer_ProperResidentialAreas_42',
+            pane: 'pane_ProperResidentialAreas_42',
+            onEachFeature: pop_ProperResidentialAreas_42,
+            style: style_ProperResidentialAreas_42_0,
+        });
+        bounds_group.addLayer(layer_ProperResidentialAreas_42);
+
+
+        var baseMaps = {};
+
+        L.control.layers(baseMaps,{"Google Hybrid": layer_GoogleHybrid_43,'<img src="legend/ProperResidentialAreas_42.png" /> Proper Residential Areas': layer_ProperResidentialAreas_42,'<img src="legend/SlumsandInappropriateSettlements_41.png" /> Slums and Inappropriate Settlements': layer_SlumsandInappropriateSettlements_41,'<img src="legend/RailwayLines_40.png" /> Railway Lines': layer_RailwayLines_40,'<img src="legend/RoadNetwork_39.png" /> Road Network': layer_RoadNetwork_39,'<img src="legend/ParkingGasandTransportServices_38.png" /> Parking, Gas, and Transport Services': layer_ParkingGasandTransportServices_38,'<img src="legend/PublicTransportLandmarks_37.png" /> Public Transport Landmarks': layer_PublicTransportLandmarks_37,'<img src="legend/PlacesofWorship_36.png" /> Places of Worship': layer_PlacesofWorship_36,'<img src="legend/PlacesofInterest_35.png" /> Places of Interest': layer_PlacesofInterest_35,'<img src="legend/NaturalBeach_34.png" /> Natural Beach': layer_NaturalBeach_34,'<img src="legend/TownsSuburbs_33.png" /> Towns & Suburbs': layer_TownsSuburbs_33,'<img src="legend/MunicipalitiesLandUse_32.png" /> Municipalities Land Use': layer_MunicipalitiesLandUse_32,"Urbanization by 2015": layer_Urbanizationby2015_31,"Urbanization by 2035 (Predicted)": layer_Urbanizationby2035Predicted_29,'<img src="legend/CulturalHeritageSites_28.png" /> Cultural Heritage Sites': layer_CulturalHeritageSites_28,'<img src="legend/TerrainContourLinesLandslidesRisk_27.png" /> Terrain Contour Lines (Landslides Risk)': layer_TerrainContourLinesLandslidesRisk_27,'<img src="legend/PakistanrivernetworkFloodRisk_26.png" /> Pakistan river network (Flood Risk)': layer_PakistanrivernetworkFloodRisk_26,'<img src="legend/LiquefactionproneareasEarthquakeRisk_25.png" /> Liquefaction prone areas (Earthquake Risk)': layer_LiquefactionproneareasEarthquakeRisk_25,"Vegetation Density West": layer_VegetationDensityWest_24,"Vegetation Density East": layer_VegetationDensityEast_23,"Vegetation Density West": layer_VegetationDensityWest_22,"Vegetation Density East": layer_VegetationDensityEast_21,"airpollution_c": layer_airpollution_c_20,"oceanpollution_c": layer_oceanpollution_c_19,'<img src="legend/OpenPublicSpaces_18.png" /> Open Public Spaces': layer_OpenPublicSpaces_18,'<img src="legend/HealthFacilities_17.png" /> Health Facilities': layer_HealthFacilities_17,'<img src="legend/FreshwaterSourcesandDrainage_16.png" /> Freshwater Sources and Drainage': layer_FreshwaterSourcesandDrainage_16,'<img src="legend/WaterPresence_15.png" /> Water Presence': layer_WaterPresence_15,'<img src="legend/MainPowerStations_14.png" /> Main Power Stations': layer_MainPowerStations_14,'<img src="legend/MainPowerGrid_13.png" /> Main Power Grid': layer_MainPowerGrid_13,"Solar Irradiance Flux East": layer_SolarIrradianceFluxEast_12,"Solar Irradiance Flux West": layer_SolarIrradianceFluxWest_11,"Solar Irradiance Flux": layer_SolarIrradianceFluxEast_10,'<img src="legend/District_Boundary_8.png" /> District_Boundary': layer_District_Boundary_8,'<img src="legend/National_Boundary_7.png" /> National_Boundary': layer_National_Boundary_7,'<img src="legend/National_Boundaryreal_6.png" /> National_Boundary real': layer_National_Boundaryreal_6,'<img src="legend/National_Constituency_with_Projected_2010_Population_5.png" /> National_Constituency_with_Projected_2010_Population': layer_National_Constituency_with_Projected_2010_Population_5,'<img src="legend/Provincial_Boundary_4.png" /> Provincial_Boundary': layer_Provincial_Boundary_4,'<img src="legend/Provincial_Constituency_3.png" /> Provincial_Constituency': layer_Provincial_Constituency_3,'<img src="legend/Tehsil_Boundary_2.png" /> Tehsil_Boundary': layer_Tehsil_Boundary_2,'<img src="legend/Union_Council_1.png" /> Union_Council': layer_Union_Council_1,"relief 90mts": layer_relief90mts_0,},{collapsed:false}).addTo(map);
+
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
